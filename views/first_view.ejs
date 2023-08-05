@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/monokai-sublime.min.css"
+        integrity="sha512-ade8vHOXH67Cm9z/U2vBpckPD1Enhdxl3N05ChXyFx5xikfqggrK4RrEele+VWY/iaZyfk7Bhk6CyZvlh7+5JQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>savedBin</title>
+</head>
+
+<body>
+    <%- include("_buttons.ejs" , {id:locals.id}) %>
+        <div class="wrapper">
+            <div class="one_line_div">
+                <% for(let i=1;i<=instruction.split('\n').length;i++){ %>
+                    <div>
+                        <%= i %>
+                    </div>
+                    <% } %>
+
+            </div>
+            <pre><code id="first_view"  class="<%= locals.language ? `language-${locals.language}`:" " %>" ><%=instruction %></code></pre>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+</body>
+
+</html>
